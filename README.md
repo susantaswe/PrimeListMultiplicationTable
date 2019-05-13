@@ -1,15 +1,31 @@
-Following are the expectations:
+Print Multiplication Table of Prime Numbers 
 
-1. We would like to see how you solve the problem using TDD. In case if you are not familiar/comfortable with TDD, you can write plain-old automated unit tests (POUTs). Automated Unit tests are mandatory for us to validate your code.
-2. Write smaller methods/functions. Follow Single Responsibility Principle/Programming by intention.
-3. Make sure your code is compiled
-4. Upload your code in Github
-5. Write some explanation about the following while you upload your code in Github.
-· Your approach. How did you come up with your solution? Details on the functions
-· Consider​ ​complexity.​ ​How​ ​fast​ ​does​ ​your​ ​code​ ​run?​ ​How​ ​does​ ​it​ ​scale?
-· ​Consider​ ​cases​ ​where​ ​we​ ​want​ ​​N​ ​primes.
-6. ​Do​ ​not​ ​use​ ​the​ ​standard prime number classes available​(write​ ​your​ ​own​ ​code).
+Description:   
+This program prints out a multiplication table of the first 10 prime numbers, whereas we can make it for any numbers instead of 10. This program is written in order to run from the command line and print to screen one table. Across the top and down the left side, there are 10 prime numbers, and the body of the table contains the product of multiplying these numbers.   
 
-It would be great if you could send us the solution by tomorrow afternoon.
-We would get into the next round of discussions based on your solution. If you have any questions, please do reach out to us.
+An example of the output is:
+   
+   |  2   3   5   7  11  13  17  19  23  29   
+­­­+­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­   
+ 2 |  4   6  10  14  22  26  34  38  46  58   
+ 3 |  6   9  15  21  33  39  51  57  69  87   
+ 5 | 10  15  25  35  55  65  85  95 115 145   
+ 7 | 14  21  35  49  77  91 119 133 161 203   
+11 | 22  33  55  77 121 143 187 209 253 319   
+13 | 26  39  65  91 143 169 221 247 299 377   
+17 | 34  51  85 119 187 221 289 323 391 493   
+19 | 38  57  95 133 209 247 323 361 437 551   
+23 | 46  69 115 161 253 299 391 437 529 667   
+29 | 58  87 145 203 319 377 493 551 667 841   
+
+This program uses the Sieve of Eratosthenes concept to find the prime numbers. The time complexity of the program is O(n(logn)(loglogn)).
+
+Note:
+•	Please make sure that you have phpunit installed. If not installed please follow the below commands
+  o	 composer require phpunit/phpunit --dev
+•	In order to run the phpunit tests, please check and run any of the below commands
+  o	phpunit
+  o	./vendor/bin/phpunit
+  o	php vendor/phpunit/phpunit/phpunit
+
 

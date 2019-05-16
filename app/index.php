@@ -1,9 +1,15 @@
 <?php
-  include("Models\primeNumbers.php");
-  use \App\Models\primeNumbers;
-
-  $obj = new primeNumbers(10);
-  $result = $obj->getMultiplicationTable();
+  include('Models\primeNumbers.php');
+  include('Models\renderer.php');
   
-  echo $result;
+  use \App\Models\primeNumbers;
+  use \App\Models\renderer;
+
+  $primeObj = new primeNumbers();
+  $primeNums = $primeObj->getNumbers(10);
+  
+  $viewerObj = new renderer();
+  $tableOutput = $viewerObj->getTableMulResults($primeNums);
+  
+  echo $tableOutput;
 ?>

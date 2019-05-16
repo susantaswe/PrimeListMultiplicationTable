@@ -16,9 +16,8 @@
     /**
      * Initiate the primeClass and set default values
      */
-    public function __construct($count = 10) {
-      if($count < 1) $count = 1;
-      $this->primeCount = $count;
+    public function __construct() {
+      $this->primeCount = 2;
       $this->primes = [2,3];
       $this->divisors = array();
       $this->nextNumber = 5;
@@ -26,71 +25,15 @@
     }
     
     /**
-     * Generate the multiplication table of the Prime numbers 
-     * Returns tabluar formated data with multiplication results
-     */
-    public function getMultiplicationTable () {
-      $results = $this->getPrimeMulResults();
-      $numSpaces = ceil(sqrt($this->primeCount))+1; // Number of Spaces required to display in table
-      $output = str_pad('|', $numSpaces+1, " ",STR_PAD_LEFT) . " ";
-      
-      // Display first row with prime numbers
-      for($k = 0; $k < $this->primeCount; $k++) {
-        $output .= str_pad($this->primes[$k], $numSpaces, " ",STR_PAD_RIGHT);
-      }
-      $output .= "\n";
-      
-      // Display dashes below the first row with prime numbers
-      for($j = 0; $j < $this->primeCount-1; $j++) {
-        if($j == 0)
-          $output .= str_pad('-', $numSpaces, "-",STR_PAD_RIGHT) . "+";
-        else 
-          $output .= str_pad('-', $numSpaces, "-",STR_PAD_RIGHT) . "-";
-      }
-      $output .= "\n";
-      
-      // Display multiplication results with formatting
-      for($row = 0; $row < $this->primeCount; $row++) {
-        for($col = 0; $col < $this->primeCount; $col++) {
-          if ($col == 0) {
-            // Display first column as prime numbers
-            $output .= str_pad($this->primes[$row], $numSpaces, " ",STR_PAD_RIGHT) . "| ";
-          }
-          // Display multiplication results for each column
-          $output .= str_pad($results[$row][$col], $numSpaces, " ",STR_PAD_RIGHT);
-        }
-        $output .= "\n";
-      }
-      return $output;
-    }
-    /**
-     * Get the multiplication results of the Prime numbers 
-     * Returns array of multiplication results
-     */
-    public function getPrimeMulResults() {
-      $this->generatePrime();
-      $rows = [];
-      
-      //Multiplication results by looping prime numbers as row and column
-      for ($col = 0, $row = 0; $col < $this->primeCount - 1, $row < $this->primeCount; $col++) {
-        $rows[$row][$col] = $this->primes[$row] * $this->primes[$col];
-        if ($col >= $this->primeCount - 1) {
-          $col = -1;
-          $row++;
-        }
-      }
-      return $rows;
-    }
-
-    /**
      * Generate Prime numbers 
      * Returns array of prime numbers
      */
-    public function generatePrime() {
-      if( $this->primeCount <= 2) {
-        // Return part of default prime array of 2 numbers
-        return array_slice($this->primes, 0, $this->primeCount);
+    public function getNumbers($count = 10) {
+      if($count <= 2) {
+        $count = 2;
+        return $this->primes;
       } else {
+        $this->primeCount = $count;
         // Add next prime numbers until count reaches
         while (count($this->primes) < $this->primeCount) {
           $this->addNextPrime();

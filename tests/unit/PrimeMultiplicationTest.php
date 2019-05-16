@@ -1,16 +1,8 @@
 <?php
   class PrimeMultiplicationTest extends \PHPUnit_Framework_TestCase {
     
-    public function testGeneratePrimeNumbers() {
-      $expectedResult = Array("0" => 2, "1" => 3, "2" => 5, "3" => 7, "4" => 11, "5" => 13, "6" => 17, "7" => 19, "8" => 23, "9" => 29, "10" => 31, "11" => 37, "12" => 41, "13" => 43, "14" => 47, "15" => 53, "16" => 59, "17" => 61, "18" => 67, "19" => 71);
-      
-      $primeObj = new \App\Models\primeNumbers(20);
-      $result = $primeObj->generatePrime();
-      
-      $this->assertEquals($result, $expectedResult);
-    }
-
     public function testPrimeMultiplicationResult() {
+      $primeArr = array(2, 3, 5, 7, 11, 13, 17, 19, 23, 29);
       $expectedResult = Array
       (
           "0" => Array("0" => 4, "1" => 6, "2" => 10, "3" => 14, "4" => 22, "5" => 26, "6" => 34, "7" => 38, "8" => 46, "9" => 58),
@@ -34,8 +26,8 @@
           "9" => Array("0" => 58, "1" => 87, "2" => 145, "3" => 203, "4" => 319, "5" => 377, "6" => 493, "7" => 551, "8" => 667, "9" => 841)
       );
       
-      $primeObj = new \App\Models\primeNumbers(10);
-      $result = $primeObj->getPrimeMulResults();
+      $primeObj = new \App\Models\renderer();
+      $result = $primeObj->getMultiplicationResult($primeArr);
       
       $this->assertEquals($result, $expectedResult);
     }

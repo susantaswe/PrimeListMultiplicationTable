@@ -28,4 +28,10 @@ Note:
   o	./vendor/bin/phpunit
   o	php vendor/phpunit/phpunit/phpunit
 
-
+Steps to execute the code:
+============================
+1. Install xampp / wamp OR install Apache & PHP separately
+2. Go to web root folder (D:\xampp\htdocs in my case)
+3. Clone the code from https://github.com/susantaswe/PrimeListMultiplicationTable.git 
+4. Now "PrimeListMultiplicationTable" should be in there in your machine ("D:\xampp\htdocs\PrimeListMultiplicationTable" in my case)
+5. Run the code in command prompt. In my case - php D:\xampp\htdocs\PrimeListMultiplicationTable\index.php

@@ -34,4 +34,5 @@ Steps to execute the code:
 2. Go to web root folder (D:\xampp\htdocs in my case)
 3. Clone the code from https://github.com/susantaswe/PrimeListMultiplicationTable.git 
 4. Now "PrimeListMultiplicationTable" should be in there in your machine ("D:\xampp\htdocs\PrimeListMultiplicationTable" in my case)
-5. Run the code in command prompt. In my case - php D:\xampp\htdocs\PrimeListMultiplicationTable\index.php
+5. Run the code in command prompt. In my case - php D:\xampp\htdocs\PrimeListMultiplicationTable\index.php 5
+   - Please note that 10 is the count of prime numbers which should be passed as a parameter. The program is updated such a way that if there is no parameter sent to index.php then it would take 10 as default count.

@@ -1,10 +1,13 @@
 <?php
-  include(dirname(__FILE__).'\Models\primeNumbers.php');
-  include(dirname(__FILE__).'\Models\renderer.php');
+  //include(dirname(__FILE__).'\models\primenumbers.php');
+  //include(dirname(__FILE__).'\models\renderer.php');
   
-  use \App\Models\primeNumbers;
+  include('models/primenumbers.php');
+  include('models/renderer.php');
+  
+  use \App\Models\primenumbers;
   use \App\Models\renderer;
-  
+
   if (defined('STDIN') && isset($argv[1])) {
     $num = $argv[1];
   } else if (isset($_GET['num']) && $_GET['num']!= '') { 
@@ -14,11 +17,14 @@
   }
 
 
-  $primeObj = new primeNumbers();
+  $primeObj = new primenumbers();
   $primeNums = $primeObj->getNumbers($num);
   
-  $viewerObj = new renderer();
-  $tableOutput = $viewerObj->getTableMulResults($primeNums);
-  
-  echo $tableOutput;
+  if($primeNums) {
+	  $viewerObj = new renderer();
+	  $tableOutput = $viewerObj->getTableMulResults($primeNums);
+	  
+	  echo $tableOutput;
+  }
+  else echo 'Please input the count';
 ?>

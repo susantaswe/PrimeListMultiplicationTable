@@ -1,11 +1,12 @@
 <?php
   namespace App\Models;
+
   /**
    * class primeNumbers
    * Usage: This class is used to get all prime numbers
    *        by taking the count as input
    */
-  class primeNumbers {
+  class primenumbers {
     private $primes;
     private $divisors;
     private $primeCount;
@@ -29,10 +30,13 @@
      * Returns array of prime numbers
      */
     public function getNumbers($count = 10) {
-      if($count <= 2) {
-        $count = 2;
-        return $this->primes;
-      } else {
+      if($count < 1) {
+		return false;
+	  }
+      else if($count <= 2) {
+        return array_slice($this->primes, 0, $count);
+      } 
+	  else {
         $this->primeCount = $count;
         // Add next prime numbers until count reaches
         while (count($this->primes) < $this->primeCount) {

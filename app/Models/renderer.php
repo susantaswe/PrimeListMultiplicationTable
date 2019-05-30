@@ -1,6 +1,6 @@
 <?php
   namespace App\Models;
-  
+
   /**
    * class renderer
    * Usage: This class is used to display the prime multiplications in tabular view
@@ -62,7 +62,7 @@
      * Returns 2 dimensional array of multiplication results
      */
     public function getMultiplicationResult($arrNums) {
-      if (is_array($arrNums) && count($arrNums) > 1) {
+      if (is_array($arrNums) && count($arrNums) >= 1) {
         $rows = [];
         $count = count($arrNums);
         
